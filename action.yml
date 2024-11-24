@@ -1,0 +1,16 @@
+name: Name
+description: Description
+author: "Author"
+inputs:
+  butler-api-key:
+    description: "The API key for Butler"
+    required: true
+  directory:
+    description: "What you want to upload. It can be directory or a a .zip file."
+    required: true
+runs:
+  using: Docker
+  image: Dockerfile
+  env:
+    BUTLER_API_KEY: ${{ inputs.butler-api-key }}
+    DIRECTORY: ${{ inputs.directory }}
